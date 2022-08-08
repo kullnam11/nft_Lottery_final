@@ -2,29 +2,29 @@ const hre = require("hardhat");
 const contracts = require("../contracts-verify.json");
 
 async function main() {
-  console.log("VERIFY: NapaCats");
-  try {
-    await hre.run("verify:verify", {
-      address: contracts.napaCats,
-      constructorArguments: [
-        "Napa NapaCats",
-        "NMC",
-        "ipfs://QmXZEBJJ6d9D6DU9yYQG1pJMKsUYcUso662HAgyo1wjWoa/",
-      ],
-      contract: "contracts/NapaCats.sol:NapaCats",
-    });
-  } catch (err) {
-    console.log("err :>> ", err);
-  }
+  // console.log("VERIFY: NapaCats");
+  // try {
+  //   await hre.run("verify:verify", {
+  //     address: contracts.napaCats,
+  //     constructorArguments: [
+  //       "NFT Cats",
+  //       "NMC",
+  //       "ipfs://QmebiAVvETkUKixdsm93RXA2u8NA5ts4VoG396NP6wYDhY/",
+  //     ],
+  //     contract: "contracts/NapaCats.sol:NapaCats",
+  //   });
+  // } catch (err) {
+  //   console.log("err :>> ", err);
+  // }
 
-  try {
-    await hre.run("verify:verify", {
-      address: contracts.nft,
-      contract: "contracts/NFTCreator.sol:NFTCreator",
-    });
-  } catch (err) {
-    console.log("err :>> ", err);
-  }
+  // try {
+  //   await hre.run("verify:verify", {
+  //     address: contracts.nft,
+  //     contract: "contracts/NFTCreator.sol:NFTCreator",
+  //   });
+  // } catch (err) {
+  //   console.log("err :>> ", err);
+  // }
 
   try {
     await hre.run("verify:verify", {

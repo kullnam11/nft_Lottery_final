@@ -17,9 +17,9 @@ async function main() {
   );
 
   // const napaCats = await NapaCats.deploy(
-  //   "Napa NapaCats",
+  //   "NFT Cat",
   //   "NMC",
-  //   "ipfs://QmXZEBJJ6d9D6DU9yYQG1pJMKsUYcUso662HAgyo1wjWoa/"
+  //   "ipfs://QmebiAVvETkUKixdsm93RXA2u8NA5ts4VoG396NP6wYDhY/"
   // );
   // await napaCats.deployed();
   // console.log("NapaCats deployed to:", napaCats.address);
@@ -31,12 +31,12 @@ async function main() {
   //   admin,
   //   250,
   // ]);
-  await nft.deployed();
-  const nftVerify = await upgrades.erc1967.getImplementationAddress(
-    nft.address
-  );
-  console.log("nft deployed in:", nft.address);
-  console.log("nftVerify deployed in:", nftVerify);
+  // await nft.deployed();
+  // const nftVerify = await upgrades.erc1967.getImplementationAddress(
+  //   nft.address
+  // );
+  // console.log("nft deployed in:", nft.address);
+  // console.log("nftVerify deployed in:", nftVerify);
   const distributor = await Distributor.deploy(
     process.env.VRF_COORDINATOR,
     process.env.LINK,
@@ -70,9 +70,9 @@ async function main() {
   );
 
   const contractAddresses = {
-    admin: admin,
-    napaCats: napaCats.address,
-    nft: nft.address,
+    // admin: admin,
+    // napaCats: napaCats.address,
+    // nft: nft.address,
     distributor: distributor.address,
     nftLotteryPool: nftLotteryPool.address,
     nftLotteryPoolFactory: nftLotteryPoolFactory.address,
@@ -81,13 +81,13 @@ async function main() {
   await fs.writeFileSync("contracts.json", JSON.stringify(contractAddresses));
 
   const contractAddresses_verify = {
-    admin: admin,
-    napaCats: napaCats.address,
-    nft: nftVerify,
+    // admin: admin,
+    // napaCats: napaCats.address,
+  //   nft: nftVerify,
     distributor: distributor.address,
     nftLotteryPool: nftLotteryPool.address,
     nftLotteryPoolFactory: nftLotteryPoolFactoryVerify,
-  };
+   };
 
   await fs.writeFileSync(
     "contracts-verify.json",
